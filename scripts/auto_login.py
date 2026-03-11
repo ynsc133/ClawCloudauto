@@ -26,7 +26,7 @@ PROXY_DSN = os.environ.get("PROXY_DSN", "").strip()
 LOGIN_ENTRY_URL = "https://console.run.claw.cloud/login"
 SIGNIN_URL = f"{LOGIN_ENTRY_URL}/signin"
 DEVICE_VERIFY_WAIT = 30  # Mobile验证 默认等 30 秒
-TWO_FACTOR_WAIT = int(os.environ.get("TWO_FACTOR_WAIT", "120"))  # 2FA验证 默认等 120 秒
+TWO_FACTOR_WAIT = int(os.environ.get("TWO_FACTOR_WAIT", "86400"))  # 2FA验证 默认等 86400 秒
 
 
 class Telegram:
@@ -80,7 +80,7 @@ class Telegram:
             pass
         return 0
     
-    def wait_code(self, timeout=120):
+    def wait_code(self, timeout=86400):
         """
         等待你在 TG 里发 /code 123456
         只接受来自 TG_CHAT_ID 的消息
